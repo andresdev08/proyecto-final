@@ -1,0 +1,250 @@
+/* 🎨 ESCAPE ROOM POLI — Estilos generales */
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&family=Orbitron:wght@500&display=swap');
+
+:root {
+  --bg: #0c0c0f;
+  --bg-panel: #1a1a22;
+  --accent: #d4af37;
+  --text: #f1f1f1;
+  --muted: #999;
+  --radius: 1rem;
+  --shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  --font-title: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  height: 100%;
+  width: 100%;
+}
+
+/* Estructura principal */
+.page {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
+/* ENCABEZADO */
+.site-header {
+  grid-area: header;
+  background: linear-gradient(90deg, #111, #222);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  box-shadow: var(--shadow);
+}
+
+.brand h1 {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+.brand .accent {
+  color: var(--accent);
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* SIDEBAR */
+.sidebar {
+  grid-area: sidebar;
+  background: var(--bg-panel);
+  padding: 1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.menu-btn {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 0.7rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.menu-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+  transform: scale(1.03);
+}
+
+/* ÁREA PRINCIPAL */
+.main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  background: radial-gradient(circle at top, #15151c, #0c0c0f);
+}
+
+/* Salida de texto */
+.output {
+  flex: 1;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+  overflow-y: auto;
+  box-shadow: var(--shadow);
+  line-height: 1.5;
+}
+
+.output p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Opciones de decisión */
+.options {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.option-btn {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.option-btn:hover {
+  background: #ffcf40;
+  transform: scale(1.05);
+}
+
+/* Entrada libre (para respuestas de texto) */
+.input-area {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+#player-input {
+  flex: 1;
+  padding: 0.7rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--accent);
+  background: #111;
+  color: var(--text);
+  outline: none;
+}
+
+.btn {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--radius);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: #ffcf40;
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+.site-footer {
+  grid-area: footer;
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  background: #111;
+  color: var(--muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Elementos auxiliares */
+.hidden {
+  display: none;
+}
+
+.sr-only {
+  position: absolute;
+  left: -9999px;
+}
+
+/* Scrollbar personalizada (opcional) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .page {
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-right: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .menu-btn {
+    flex: 1 1 45%;
+  }
+}

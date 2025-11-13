@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🔒 Escape Room Poli</title>
+
+  <!-- Link al CSS (archivo que creaste: style.css) -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Meta para mejorar la visualización en móviles -->
+  <meta name="description" content="Escape Room Poli — aventura de texto ambientada en una pirámide.">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header" role="banner">
+      <div class="brand">
+        <h1>🔒 <span class="accent">Escape Room</span> Poli</h1>
+        <p class="subtitle">Aventura de texto — toma decisiones y escapa de la pirámide</p>
+      </div>
+    </header>
+
+    <main id="main" class="main" role="main" aria-live="polite">
+      <!-- Área de salida de texto: aquí el JS insertará la historia -->
+      <section id="output" class="output" tabindex="0">
+        <h2 class="sr-only">Texto del juego</h2>
+        <div id="output-inner" class="output-inner">
+          <p>✨ Bienvenido a <strong>Escape Room Poli</strong>. Usa los botones del menú para comenzar.</p>
+        </div>
+      </section>
+
+      <!-- Área de opciones / botones dinámicos -->
+      <section id="options" class="options" aria-label="Opciones del juego">
+        <!-- El JS añadirá botones aquí según la escena -->
+      </section>
+
+      <!-- Entrada libre para respuestas (oculta por defecto, el JS la mostrará si hace falta) -->
+      <section id="input-area" class="input-area hidden" aria-hidden="true">
+        <label for="player-input" class="input-label">Tu respuesta</label>
+        <div class="input-row">
+          <input id="player-input" type="text" inputmode="text" autocomplete="off" placeholder="Escribe aquí..." />
+          <button id="submit-input" class="btn">Enviar</button>
+        </div>
+      </section>
+    </main>
+
+    <aside class="sidebar" role="complementary" aria-label="Menú principal">
+      <nav class="menu" role="navigation" aria-label="Menú principal">
+        <button class="btn menu-btn" id="btn-new">🧭 Nueva partida</button>
+        <button class="btn menu-btn" id="btn-credits">🎓 Créditos</button>
+        <button class="btn menu-btn" id="btn-about">📖 Sobre el juego</button>
+        <button class="btn menu-btn" id="btn-how">🕹️ Instrucciones</button>
+        <button class="btn menu-btn" id="btn-registry">📜 Registro</button>
+      </nav>
+    </aside>
+
+    <footer class="site-footer" role="contentinfo">
+      <small>Hecho por Juan Andrés — Proyecto académico</small>
+    </footer>
+  </div>
+
+  <!-- Plantillas ocultas (útiles para el JS) -->
+  <template id="option-template">
+    <button class="btn option-btn" data-value=""></button>
+  </template>
+
+  <!-- Script de la lógica (archivo que creaste: game.js) -->
+  <script src="game.js" defer></script>
+</body>
+</html>
