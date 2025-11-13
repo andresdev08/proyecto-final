@@ -1,11 +1,4 @@
-/* game.js
-   Versión corregida — conversión completa Java -> JavaScript
-   Mantiene textos y lógica del Java original, nombres unificados.
-*/
 
-/* ---------------------------
-   Estado global (equivalente a las variables estáticas en Java)
-   --------------------------- */
 const MAX_REGISTRO = 20;
 let registro = new Array(MAX_REGISTRO).fill(null).map(() => [null, null]); // matriz 20x2
 let contadorJugadores = 0;
